@@ -34,6 +34,12 @@ As alternativas são embaralhadas automaticamente a cada partida.
 Tempos de volta automática ao início: [`src/config.ts`](src/config.ts)
 (60s sem toque no meio do quiz, 20s na tela de resultado).
 
+## QR code
+
+A tela inicial mostra um QR code para `https://quiz.jogaro.com.br` ("Jogue no seu celular!").
+Versões para imprimir ficam em `qrcode/quiz-qrcode.png` (1200 px) e `qrcode/quiz-qrcode.svg`.
+Para gerar de novo (ex.: outro domínio): `pnpm qrcode https://outro.dominio`.
+
 ## Publicar (Coolify) — em uso
 
 Publicado em **https://quiz.jogaro.com.br** pelo Coolify. O `Dockerfile` faz o build com pnpm e serve o
