@@ -32,6 +32,10 @@ export function renderStart(): string {
       <div class="start__cta">
         <button class="btn btn--big" data-action="start">Começar</button>
         <p class="start__hint">10 perguntas · toque para jogar</p>
+        <div class="qr card">
+          <img src="${import.meta.env.BASE_URL}qrcode.svg" alt="QR code para quiz.jogaro.com.br" />
+          <p><strong>Jogue no seu celular!</strong><span>quiz.jogaro.com.br</span></p>
+        </div>
       </div>
     </section>`;
 }
