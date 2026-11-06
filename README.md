@@ -34,7 +34,17 @@ As alternativas são embaralhadas automaticamente a cada partida.
 Tempos de volta automática ao início: [`src/config.ts`](src/config.ts)
 (60s sem toque no meio do quiz, 20s na tela de resultado).
 
-## Publicar (GitHub Pages)
+## Publicar (Coolify) — em uso
+
+Publicado em **https://quiz.jogaro.com.br** pelo Coolify. O `Dockerfile` faz o build com pnpm e serve o
+`dist/` com nginx (`nginx.conf`: cache longo para `/assets/`, `no-cache` para HTML, service worker e manifesto).
+
+- **Coolify:** Application → Public Repository → este repo, branch `main`, **Build Pack: Dockerfile**,
+  **Ports Exposes: 80**, domínio `https://quiz.jogaro.com.br` (HTTPS automático).
+- **DNS:** registro `A` de `quiz.jogaro.com.br` apontando para o IP do servidor do Coolify.
+- Novas versões: push na `main` + **Redeploy** no Coolify (ou ative o webhook/auto deploy).
+
+## Publicar (GitHub Pages) — alternativa
 
 1. Crie o repositório no GitHub e faça push da branch `main`.
 2. Em **Settings → Pages → Build and deployment**, escolha **Source: GitHub Actions**.
