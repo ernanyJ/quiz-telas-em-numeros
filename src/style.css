@@ -182,6 +182,8 @@ svg {
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  /* Folga para a sombra do botão "Próxima" não ser cortada ao rolar até ele. */
+  scroll-padding-bottom: 28px;
 }
 
 .enter {
@@ -410,8 +412,8 @@ svg {
 }
 
 .quiz {
-  flex: 1;
-  min-height: 0;
+  /* Cresce com o conteúdo (não encolhe), para o #screen rolar incluindo o padding de baixo. */
+  flex: 1 0 auto;
   display: grid;
   grid-template-areas:
     'prompt'
@@ -421,6 +423,7 @@ svg {
   align-content: start;
   gap: var(--gap);
   padding-top: var(--gap);
+  padding-bottom: 28px;
   width: min(100%, 980px);
   margin: 0 auto;
 }
