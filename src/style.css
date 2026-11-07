@@ -177,6 +177,11 @@ svg {
   min-height: 0;
   display: flex;
   flex-direction: column;
+  /* Em telas baixas (celular) o feedback não cabe: rola só aqui dentro. */
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .enter {

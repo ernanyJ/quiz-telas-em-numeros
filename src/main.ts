@@ -76,6 +76,15 @@ function render(): void {
   // Só anima a entrada quando muda de tela/pergunta (não ao responder).
   const section = screenEl.firstElementChild;
   if (isNewView && section) section.classList.add('enter');
+
+  if (isNewView) {
+    screenEl.scrollTop = 0;
+  } else if (state.screen === 'question' && state.selected !== null) {
+    // Respondeu: garante que o botão "Próxima" fique visível em telas baixas.
+    screenEl
+      .querySelector('[data-action="next"]')
+      ?.scrollIntoView({ block: 'end', behavior: 'smooth' });
+  }
 }
 
 function renderMute(): void {
