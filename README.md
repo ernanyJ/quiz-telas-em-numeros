@@ -32,7 +32,7 @@ Tudo fica em [`src/data/questions.ts`](src/data/questions.ts): enunciado, altern
 As alternativas são embaralhadas automaticamente a cada partida.
 
 Tempos de volta automática ao início: [`src/config.ts`](src/config.ts)
-(60s sem toque no meio do quiz, 20s na tela de resultado).
+(60s sem toque no meio do quiz, 20s na tela de resultado) e o avanço automático depois de responder (5s).
 
 ## QR code
 

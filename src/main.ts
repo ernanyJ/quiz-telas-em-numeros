@@ -5,7 +5,7 @@ import '@fontsource/baloo-2/latin-800.css';
 import './style.css';
 
 import { registerSW } from 'virtual:pwa-register';
-import { QUESTION_IDLE_MS, RESULT_IDLE_MS } from './config';
+import { AUTO_NEXT_MS, QUESTION_IDLE_MS, RESULT_IDLE_MS } from './config';
 import { questions } from './data/questions';
 import { icons } from './icons';
 import { createIdleTimer } from './idle';
@@ -43,10 +43,16 @@ const idle = createIdleTimer(() => setState(initialState()));
 
 let state: QuizState = initialState();
 let renderedKey = '';
+let autoNext: ReturnType<typeof setTimeout> | undefined;
 
 function setState(nextState: QuizState): void {
   const prev = state;
   state = nextState;
+  clearTimeout(autoNext);
+  autoNext = undefined;
+  if (state.screen === 'question' && state.selected !== null) {
+    autoNext = setTimeout(() => setState(next(state)), AUTO_NEXT_MS);
+  }
   render();
   if (prev.screen !== 'result' && state.screen === 'result') {
     sound.finish();
